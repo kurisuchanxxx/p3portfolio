@@ -106,7 +106,7 @@ export default function VideoPage({ src }) {
           <div className="vp-detail-title">{PROJECTS[active].title}</div>
           <div className="vp-detail-desc">{PROJECTS[active].desc}</div>
           {PROJECTS[active].link && PROJECTS[active].link !== "#" && (
-            <div className="vp-detail-link">PREMI INVIO O CLICCA PER APRIRE IL LINK</div>
+            <div className="vp-detail-link">PREMI INVIO O CLICCA PER APRIRE IL SITO WEB</div>
           )}
         </div>
 
