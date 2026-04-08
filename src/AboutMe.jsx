@@ -84,6 +84,12 @@ export default function AboutMe() {
   const [revealed, setRevealed] = useState(false);
   const navigate = useNavigate();
 
+  const goBack = () => {
+    const idx = window.history?.state?.idx;
+    if (typeof idx === "number" ? idx > 0 : window.history.length > 1) navigate(-1);
+    else navigate("/");
+  };
+
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 60);
     return () => clearTimeout(t);
@@ -97,9 +103,9 @@ export default function AboutMe() {
       if (e.key === "ArrowRight") setRevealed(true);
       if (e.key === "ArrowLeft") {
         if (revealed) setRevealed(false);
-        else navigate(-1);
+        else goBack();
       }
-      if (e.key === "Escape" || e.key === "Backspace") navigate(-1);
+      if (e.key === "Escape" || e.key === "Backspace") goBack();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -107,7 +113,7 @@ export default function AboutMe() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline />
+      <video src={bgVideo} autoPlay loop muted playsInline preload="auto" />
       {revealed && <div key={`dim-${active}`} className="sc-dim" />}
       {revealed && (
         <div key={`panel-${active}`} className={`sc-reveal-panel${mounted ? " mounted" : ""}`}>
@@ -713,7 +719,7 @@ export default function AboutMe() {
         className="back-button"
         onClick={() => {
           if (revealed) setRevealed(false);
-          else navigate(-1);
+          else goBack();
         }}
       >
         <span className="back-arrow">◄</span> INDIETRO

@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
 
 # Media (keep out of git to avoid size/copyright issues)
 *.mp4

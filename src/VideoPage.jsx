@@ -62,7 +62,7 @@ export default function VideoPage({ src }) {
 
   return (
     <div id="menu-screen">
-      <video src={src} autoPlay loop muted playsInline />
+      <video src={src} autoPlay loop muted playsInline preload="auto" />
       <div className="vp-overlay">
         
         <div className={`vp-header ${mounted ? "mounted" : ""}`}>

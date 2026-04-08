@@ -8,7 +8,7 @@ import icon1 from "./assets/icon1.png";
 import icon2 from "./assets/icon2.png";
 import icon3 from "./assets/icon3.png";
 
-const bgVideo = import.meta.env.VITE_SOCIALS_VIDEO_URL || import.meta.env.VITE_PROJECTS_VIDEO_URL || import.meta.env.VITE_MENU_VIDEO_URL || "/main3.mp4";
+const bgVideo = import.meta.env.VITE_RESUME_VIDEO_URL || import.meta.env.VITE_SOCIALS_VIDEO_URL || import.meta.env.VITE_PROJECTS_VIDEO_URL || import.meta.env.VITE_MENU_VIDEO_URL || "/main3.mp4";
 
 const CHARS = [char1, char2, char3];
 
@@ -79,7 +79,7 @@ export default function Socials() {
 
   return (
     <div id="menu-screen">
-      <video src={bgVideo} autoPlay loop muted playsInline />
+      <video src={bgVideo} autoPlay loop muted playsInline preload="auto" />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,700;1,700&display=swap');
 
