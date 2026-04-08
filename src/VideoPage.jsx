@@ -7,7 +7,7 @@ const PROJECTS = [
     type: "Web & Digital Agency",
     status: "ACTIVE",
     desc: "Realtà ibrida tra comunicazione, web e soluzioni digitali.",
-    link: "https://ctrlstudio.it",
+    link: "https://www.ctrlstudio.it/",
     color: "#00e5ff"
   },
   {
