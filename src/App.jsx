@@ -11,10 +11,10 @@ import BackgroundMusic from './BackgroundMusic'
 import './App.css'
 
 const menuVideo = import.meta.env.VITE_MENU_VIDEO_URL || '/Mainn.mp4'
-const resumeVideo = import.meta.env.VITE_SOCIALS_VIDEO_URL || import.meta.env.VITE_RESUME_VIDEO_URL || '/main2.mp4'
+const resumeVideo = import.meta.env.VITE_RESUME_VIDEO_URL || '/main2.mp4'
 const projectsVideo = import.meta.env.VITE_PROJECTS_VIDEO_URL || '/main3.mp4'
 const aboutVideo = import.meta.env.VITE_ABOUT_VIDEO_URL || menuVideo || '/main1.mp4'
-const socialsVideo = import.meta.env.VITE_RESUME_VIDEO_URL || import.meta.env.VITE_SOCIALS_VIDEO_URL || projectsVideo || menuVideo || '/main3.mp4'
+const socialsVideo = import.meta.env.VITE_SOCIALS_VIDEO_URL || projectsVideo || menuVideo || '/main3.mp4'
 
 function MenuScreen() {
   const navigate = useNavigate()

@@ -102,7 +102,6 @@ export default function ResumePage({ src }) {
   const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [mounted, setMounted] = useState(false);
-  const [uiOpen, setUiOpen] = useState(false);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 80);
@@ -111,16 +110,15 @@ export default function ResumePage({ src }) {
 
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === "ArrowUp" && uiOpen) setActive((i) => Math.max(0, i - 1));
-      if (e.key === "ArrowDown" && uiOpen) setActive((i) => Math.min(SECTIONS.length - 1, i + 1));
-      if ((e.key === "Enter" || e.key === "ArrowRight") && !uiOpen) setUiOpen(true);
+      if (e.key === "ArrowUp") setActive((i) => Math.max(0, i - 1));
+      if (e.key === "ArrowDown") setActive((i) => Math.min(SECTIONS.length - 1, i + 1));
       if (e.key === "ArrowLeft") navigate(-1);
       if (e.key === "Escape" || e.key === "Backspace") navigate(-1);
     };
 
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [navigate, uiOpen]);
+  }, [navigate]);
 
   return (
     <div id="menu-screen">
@@ -160,27 +158,6 @@ export default function ResumePage({ src }) {
           inset: 0;
           z-index: 10;
           pointer-events: none;
-        }
-
-        .resume-overlay.closed {
-          opacity: 0;
-          pointer-events: none;
-        }
-
-        .resume-reveal-hotzone {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: min(52vw, 760px);
-          height: 100%;
-          z-index: 11;
-          cursor: pointer;
-          pointer-events: auto;
-          background: transparent;
-        }
-
-        .resume-reveal-hotzone.closed {
-          display: none;
         }
 
         .resume-stack {
@@ -503,14 +480,7 @@ export default function ResumePage({ src }) {
         }
       `}</style>
 
-      {!uiOpen && (
-        <div
-          className="resume-reveal-hotzone"
-          onClick={() => setUiOpen(true)}
-        />
-      )}
-
-      {uiOpen && SECTIONS[active] && (
+      {SECTIONS[active] && (
         <div className="resume-detail-panel">
           <div className="resume-detail-top">
             <div className="resume-detail-top-index">{SECTIONS[active].panel.index}</div>
@@ -539,7 +509,7 @@ export default function ResumePage({ src }) {
         </div>
       )}
 
-      <div className={`resume-overlay${uiOpen ? "" : " closed"}`}>
+      <div className="resume-overlay">
         <div className="resume-stack">
           <div className={`resume-list-tag${mounted ? " mounted" : ""}`}>LISTA</div>
           {SECTIONS.map((item, index) => (
@@ -547,10 +517,7 @@ export default function ResumePage({ src }) {
               key={item.id}
               className={`resume-card-wrap${active === index ? " active" : ""}${mounted ? " mounted" : ""}`}
               style={{ transitionDelay: mounted ? `${index * 60}ms` : "0ms" }}
-              onClick={() => {
-                if (!uiOpen) setUiOpen(true);
-                setActive(index);
-              }}
+              onClick={() => setActive(index)}
               onMouseEnter={() => {
                 if (active !== index) {
                   setActive(index);
