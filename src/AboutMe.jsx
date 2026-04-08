@@ -10,7 +10,7 @@ import mainm from "./assets/mainm.jpeg";
 import mainm2 from "./assets/mainm2.jpeg";
 import mainf from "./assets/mainf.jpeg";
 
-const bgVideo = import.meta.env.VITE_ABOUT_VIDEO_URL || "/main1.mp4";
+const bgVideo = import.meta.env.VITE_ABOUT_VIDEO_URL || import.meta.env.VITE_MENU_VIDEO_URL || "/main1.mp4";
 
 const CHARS = [char1, char2, char3];
 const MAIN_IMAGES = [mainm, mainm2, mainf];

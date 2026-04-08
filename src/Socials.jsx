@@ -8,7 +8,7 @@ import icon1 from "./assets/icon1.png";
 import icon2 from "./assets/icon2.png";
 import icon3 from "./assets/icon3.png";
 
-const bgVideo = import.meta.env.VITE_SOCIALS_VIDEO_URL || "/main3.mp4";
+const bgVideo = import.meta.env.VITE_SOCIALS_VIDEO_URL || import.meta.env.VITE_PROJECTS_VIDEO_URL || import.meta.env.VITE_MENU_VIDEO_URL || "/main3.mp4";
 
 const CHARS = [char1, char2, char3];
 
