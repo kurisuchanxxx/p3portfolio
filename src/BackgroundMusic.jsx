@@ -6,7 +6,7 @@ export default function BackgroundMusic() {
   const [playing, setPlaying] = useState(false);
 
   useEffect(() => {
-    const audio = new Audio("/bgm.mp3");
+    const audio = new Audio(import.meta.env.VITE_BGM_URL || "/bgm.mp3");
     audio.loop = true;
     audio.preload = "auto";
     audio.volume = 0.35;
@@ -137,4 +137,3 @@ export default function BackgroundMusic() {
     </>
   );
 }
-

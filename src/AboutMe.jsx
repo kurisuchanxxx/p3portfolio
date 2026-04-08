@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import char1 from "./assets/char1.png";
 import char2 from "./assets/char2.png";
 import char3 from "./assets/char3.png";
-import bgVideo from "./assets/main1.mp4";
 import icon1 from "./assets/icon1.png";
 import icon2 from "./assets/icon2.png";
 import icon3 from "./assets/icon3.png";
 import mainm from "./assets/mainm.jpeg";
 import mainm2 from "./assets/mainm2.jpeg";
 import mainf from "./assets/mainf.jpeg";
+
+const bgVideo = import.meta.env.VITE_ABOUT_VIDEO_URL || "/main1.mp4";
 
 const CHARS = [char1, char2, char3];
 const MAIN_IMAGES = [mainm, mainm2, mainf];

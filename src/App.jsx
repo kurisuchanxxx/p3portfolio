@@ -1,9 +1,5 @@
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import menuVideo from './assets/Mainn.mp4'
-import main1 from './assets/main1.mp4'
-import main2 from './assets/main2.mp4'
-import main3 from './assets/main3.mp4'
 import P3Menu from './P3Menu'
 import VideoPage from './VideoPage'
 import ResumePage from './ResumePage'
@@ -12,6 +8,10 @@ import Socials from './Socials'
 import AboutMe from './AboutMe'
 import BackgroundMusic from './BackgroundMusic'
 import './App.css'
+
+const menuVideo = import.meta.env.VITE_MENU_VIDEO_URL || '/Mainn.mp4'
+const resumeVideo = import.meta.env.VITE_RESUME_VIDEO_URL || '/main2.mp4'
+const projectsVideo = import.meta.env.VITE_PROJECTS_VIDEO_URL || '/main3.mp4'
 
 function MenuScreen() {
   const navigate = useNavigate()
@@ -35,13 +35,13 @@ function AnimatedRoutes() {
           <PageTransition variant="about"><AboutMe /></PageTransition>
         } />
         <Route path="/resume" element={
-          <PageTransition><ResumePage src={main2} /></PageTransition>
+          <PageTransition><ResumePage src={resumeVideo} /></PageTransition>
         } />
         <Route path="/socials" element={
           <PageTransition variant="socials"><Socials /></PageTransition>
         } />
         <Route path="/sideproj" element={
-          <PageTransition><VideoPage src={main3} /></PageTransition>
+          <PageTransition><VideoPage src={projectsVideo} /></PageTransition>
         } />
       </Routes>
     </AnimatePresence>
